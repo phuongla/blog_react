@@ -22,11 +22,18 @@ class Home extends Component {
 
     renderPosts() {
         const { posts } = this.props;
+
+        if(!posts) {
+            return (<div></div>);
+        }
+
         const postItems =  _.map(posts, (post) => {
             const { id, title, category, content } = post;
             return (
-                <li className="list-group-item">
-                    {title}
+                <li key={id} className="list-group-item">
+                    <Link to={`/posts/${id}`}>
+                        {title}
+                    </Link>
                 </li>
             );
         });
@@ -35,11 +42,6 @@ class Home extends Component {
 
     render() {
         const { posts } = this.props;
-        console.log(posts);
-
-        if(!posts) {
-            return <h3>Empty Post</h3>;
-        }
 
         return (
             <div>

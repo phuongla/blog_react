@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Home from '../components/Home';
 import PostNew from '../components/PostNew';
+import PostShow from '../components/PostShow';
 
 class App extends Component {
 
@@ -15,6 +16,7 @@ class App extends Component {
           <div>
               <Switch>
                 <Route path="/posts/new" component={PostNew} />
+                <Route path="/posts/:id" component={PostShow} />
                 <Route path="/" component={Home} />
               </Switch>
           </div>
